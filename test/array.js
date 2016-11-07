@@ -202,4 +202,30 @@ describe('Array', function () {
 
   })
 
+  describe('get / set', function () {
+    var IntArray = ArrayType('int')
+
+    it('support regular get and set methods', function () {
+      var input = [0, 1, 2]
+      var array = new IntArray(input)
+
+      assert.equal(array.get(0), 0)
+      assert.equal(array.get(1), 1)
+      assert.equal(array.get(2), 2)
+
+      array.set(0, array.get(0) + 1)
+      array.set(1, array.get(1) + 1)
+      array.set(2, array.get(2) + 1)
+
+      assert.equal(array.get(0), 1)
+      assert.equal(array.get(1), 2)
+      assert.equal(array.get(2), 3)
+
+      assert.equal(array[0], 1)
+      assert.equal(array[1], 2)
+      assert.equal(array[2], 3)
+    })
+
+  })
+
 })
